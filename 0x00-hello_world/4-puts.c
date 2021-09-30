@@ -1,6 +1,8 @@
 #include <stdio.h>
 
-/*This fonction print a message*/
+/**
+ * main - Print a simple text using puts
+ */
 int main(void)
 {
 	puts("\"Programming is like building a multilingual puzzle");

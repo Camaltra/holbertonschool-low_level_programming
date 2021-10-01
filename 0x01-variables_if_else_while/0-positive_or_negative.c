@@ -2,7 +2,11 @@
 #include <time.h>
 /* more headers goes there */
 
-/* betty style doc for function main goes there */
+/**
+ * main - Print if the sign of the number
+ * Return: 0 cause main void
+ */
+
 int main(void)
 {
 	int n;
@@ -13,7 +17,7 @@ int main(void)
 	{
 		printf("is positive");
 	}
-	elif(n == 0)
+	else if (n == 0)
 	{
 		printf("is zero");
 	}

@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Print the alphabet in lower case without using printf
+ * main - Print the alphabet in reverse using printf
  * Return: 0 cause void function
  */
 int main(void)

@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+/**
+ * main - Print the alphabet without using printf
+ * Return: 0 cause void function
+ */
+int main(void)
+{
+	char alphabet = 'a';
+
+	while (alphabet <= 'z')
+	{
+		putchar(alphabet);
+		alphabet++;
+	}
+	putchar('\n');
+	return (0);
+}

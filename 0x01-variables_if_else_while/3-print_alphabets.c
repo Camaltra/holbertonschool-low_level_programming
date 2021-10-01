@@ -6,13 +6,13 @@
  */
 int main(void)
 {
-	char alphabetMin = 'a';
+	char alphabetMinn = 'a';
 	char alphabetMaj = 'A';
 
-	while (alphabetMin <= 'z')
+	while (alphabetMinn <= 'z')
 	{
-		putchar(alphabetMin);
-		alphabetMin++;
+		putchar(alphabetMinn);
+		alphabetMinn++;
 	}
 	while (alphabetMaj <= 'Z')
 	{

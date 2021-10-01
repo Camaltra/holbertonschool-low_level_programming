@@ -6,35 +6,24 @@
  */
 int main(void)
 {
-	int i = 48;
-	int j = 48;
-	int e = 48;
-	int c = 49;
+	int i, j;
 
-	while (i < 58)
+	i = 0;
+	while (i < 10)
 	{
-		while (j < 58)
+		j = i + 1;
+		while (j < 10)
 		{
-			if (e < c)
+			putchar(i+48);
+			putchar(j+48);
+			if (i != 8)
 			{
-				e++;
-			}
-			else
-			{
-				putchar(i);
-				putchar(j);
-				if (i != 56)
-				{
-					putchar(',');
-					putchar(' ');
-				}
+				putchar(',');
+				putchar(' ');
 			}
 			j++;
 		}
-		e = 48;
-		c++;
 		i++;
-		j = 48;
 	}
 	putchar('\n');
 	return (0);

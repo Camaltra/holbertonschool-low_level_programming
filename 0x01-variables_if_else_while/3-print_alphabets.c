@@ -7,7 +7,7 @@
 int main(void)
 {
 	char alphabetMin = 'a';
-    char alphabetMaj = 'A';
+	char alphabetMaj = 'A';
 
 	while (alphabetMin <= 'z')
 	{

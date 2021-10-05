@@ -7,19 +7,18 @@
  */
 int main(void)
 {
-	long n1 = 1, n2 = 2, n3;
+	long n1 = 1, n2 = 2, sum = 0, n3;
 
-	printf("%li, %li", n1, n2);
 	while (n3 < 4000000)
 	{
 		n3 = n1 + n2;
 		if (n3 % 2 == 0)
 		{
-			printf(", %li", n3);
+			sum += n3;
 		}
 		n1 = n2;
 		n2 = n3;
 	}
-	printf("\n");
+	printf("%li\n", sum);
 	return (0);
 }

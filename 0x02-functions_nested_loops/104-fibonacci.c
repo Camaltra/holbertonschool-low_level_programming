@@ -31,7 +31,7 @@ int main(void)
 	n2b = n2 % 10000000000;
 	n3a = n3 / 10000000000;
 	n3b = n3 % 10000000000;
-	while (j < 98) /* start to cut the long in half */
+	while (j < 97) /* start to cut the long in half */
 	{
 		printf("%li%li, ", n3a, n3b);
 		n1a = n2a;

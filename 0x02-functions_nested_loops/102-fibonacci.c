@@ -12,7 +12,7 @@ int main(void)
     int i = 0;
 
     printf("%li, %li", n1, n2);
-    while (i < 50)
+    while (i < 48)
     {
         n3 = n1 + n2; 
         printf(", %li", n3);

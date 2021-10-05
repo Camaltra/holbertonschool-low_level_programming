@@ -12,6 +12,12 @@ void print_times_table(int n)
 {
 	int i = 0, j, result;
 
+	if (n == 0)
+	{
+		_putchar(48)
+		_putchar('\n')
+	}
+
 	if (n > 0 && n < 15)
 	{
 		while (i <= n)

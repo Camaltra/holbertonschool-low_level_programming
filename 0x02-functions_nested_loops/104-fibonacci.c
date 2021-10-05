@@ -19,9 +19,9 @@ int main(void)
 	while (i < 92)
 	{
 		printf("%li, ", n3);
-		n3 = n1 + n2;
 		n1 = n2;
 		n2 = n3;
+		n3 = n1 + n2;
 		i++;
 	}
 	n2a = n2 / 1000000000;

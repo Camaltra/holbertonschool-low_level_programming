@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_numbers - Print all the numbers between 0-9 without 2 and 4
+ * print_most_numbers - Print all the numbers between 0-9 without 2 and 4
  *
  * Return: Anything, cause void function
  */

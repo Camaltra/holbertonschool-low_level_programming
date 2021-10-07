@@ -1,4 +1,5 @@
 #include "main.h"
+#include "holberton.h"
 
 /**
  * _isupper - Test if a inputed char is upper case

@@ -20,5 +20,5 @@ int main(void)
 		primeFactor++;
 	}
 	printf("%d\n", mLPN);
-	return (mLPN);
+	return (0);
 }

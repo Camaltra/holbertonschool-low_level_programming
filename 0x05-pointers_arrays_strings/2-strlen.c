@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * _strlen : Calculate the length of a string
+ * _strlen - Calculate the length of a string.
  *
- * @s: String to manipulate
+ * @s: String to manipulate.
  *
- * Return: The length of the inputed string
+ * Return: The length of the inputed string.
  */
 
 int _strlen(char *s)

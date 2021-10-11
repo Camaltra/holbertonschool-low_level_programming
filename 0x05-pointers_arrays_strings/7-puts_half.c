@@ -12,24 +12,15 @@ void puts_half(char *str);
  */
 void puts_half(char *str)
 {
-	int half, counter, length = _strlen(str);
+	int length = _strlen(str);
+	int half;
 
-	if (length % 2 == 0)
+	for (half = (length + 1) / 2; half < length; half++)
 	{
-		half = length / 2;
-	}
-	else
-	{
-		half = (length - 1) / 2;
-	}
-	for (counter = half; counter < length; counter++)
-	{
-		_putchar(str[counter]);
+		_putchar(str[half]);
 	}
 	_putchar('\n');
 }
-
-
 
 /**
  * _strlen - Calculate the length of a string.

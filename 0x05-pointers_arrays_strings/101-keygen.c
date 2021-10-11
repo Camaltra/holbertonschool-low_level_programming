@@ -14,7 +14,7 @@ int main()
     srand(time(NULL));
     for (counter = 2772; counter > 126;)
     {
-        key = (rand() % 126); 
+        key = (rand() % 125) + 1; 
         printf("%c", key);
         counter -= key; 
     }

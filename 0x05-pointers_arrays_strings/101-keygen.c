@@ -3,12 +3,9 @@
 #include <time.h>
 
 /**
+ * main - Create a Keygen for 101-crackme
  * 
- * 
- * 
- * 
- * 
- * 
+ * Return: 0 (succes)
  */
 int main()
 {

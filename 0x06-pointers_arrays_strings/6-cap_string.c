@@ -11,6 +11,11 @@ char *cap_string(char *str)
 {
 	char separators[] = " \t\n,;.!?\"(){}";
 	int i, j;
+	
+	if (str[0] > 96 && str[0] < 123)
+	{
+		str[0] -= 32;
+	}
 
 	for (i = 0; str[i] != '\0'; i++)
 	{

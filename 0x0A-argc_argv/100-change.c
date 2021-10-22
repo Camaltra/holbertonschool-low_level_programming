@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 /**
- * main - Print the sum of 2 inputed arguments
+ * main - prints the minimum number of coins to make change for an amount of money
  *
  * @argc: Number of arguments
  * @argv: Array of arguments
  *
- * Return: 1 if not 2 arg inputed, 0 success
+ * Return: 0 if succes, 1 else 
  */
 int main(int argc, char *argv[])
 {

@@ -33,8 +33,8 @@ int main(int argc, char *argv[])
 			else if (cents >= 5)
 				cents -= 5, number_of_piece += 1;
 			else if (cents >= 2)
-				cents -= 10, number_of_piece += 1;
-			else
+				cents -= 2, number_of_piece += 1;
+			else if (cents >= 1)
 				cents -= 1, number_of_piece += 1;
 		}
 		printf("%d\n", number_of_piece);

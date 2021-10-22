@@ -2,12 +2,13 @@
 #include <stdlib.h>
 
 /**
- * main - prints the minimum number of coins to make change for an amount of money
+ * main - prints the minimum number of coins to make
+ * change for an amount of money
  *
  * @argc: Number of arguments
  * @argv: Array of arguments
  *
- * Return: 0 if succes, 1 else 
+ * Return: 0 if succes, 1 else
  */
 int main(int argc, char *argv[])
 {
@@ -25,16 +26,16 @@ int main(int argc, char *argv[])
 		cents = atoi(argv[1]);
 		while (cents != 0)
 		{
-			if (cents % 25 == 0)
+			if (cents >= 25)
 				cents -= 25, number_of_piece += 1;
-			else if (cents % 10 == 0)
+			else if (cents >= 10)
 				cents -= 10, number_of_piece += 1;
-			else if (cents % 5 == 0)
+			else if (cents >= 5)
 				cents -= 5, number_of_piece += 1;
-			else if (cents % 2 == 0)
+			else if (cents >= 2)
 				cents -= 10, number_of_piece += 1;
 			else
-				cents -= 10, number_of_piece += 1;
+				cents -= 1, number_of_piece += 1;
 		}
 		printf("%d\n", number_of_piece);
 	}

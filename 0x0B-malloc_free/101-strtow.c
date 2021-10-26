@@ -78,9 +78,12 @@ int _strlen_letter(char *s)
  */
 int _strcount_word(char *str)
 {
-	int i, word_count = 0;
+	int i = 0, word_count = 0, len = 0;
 
 	for (i = 0; *(str + i); i++)
+		len++;
+
+	for (i = 0; i < len; i++)
 	{
 		if (*(str + i) != ' ')
 		{
@@ -88,5 +91,5 @@ int _strcount_word(char *str)
 			i += _strlen_letter(str + i);
 		}
 	}
-	return (word_count);
+	return(word_count);
 }

@@ -23,7 +23,7 @@ char **strtow(char *str)
 	if (word == 0)
 		return (NULL);
 
-	help = (char **)malloc(sizeof(char *) * word + 1);
+	help = (char **)malloc(sizeof(char *) * (word + 1));
 	if (help == NULL)
 		return (NULL);
 
@@ -78,7 +78,7 @@ int _strlen_letter(char *s)
  */
 int _strcount_word(char *str)
 {
-	int i, word_count;
+	int i, word_count = 0;
 
 	for (i = 0; *(str + i); i++)
 	{

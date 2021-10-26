@@ -91,5 +91,5 @@ int _strcount_word(char *str)
 			i += _strlen_letter(str + i);
 		}
 	}
-	return(word_count);
+	return (word_count);
 }

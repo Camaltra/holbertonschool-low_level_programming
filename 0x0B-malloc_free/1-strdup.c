@@ -16,7 +16,7 @@ char *_strdup(char *str)
 	unsigned int lengthOfStr, i;
 
 	lengthOfStr = _strlen(str);
-	duplicateStr = (char *)malloc(sizeof(char) * lengthOfStr);
+	duplicateStr = (char *)malloc(sizeof(char) * lengthOfStr + 1);
 	if (duplicateStr == NULL)
 		return (NULL);
 	for (i = 0; i < lengthOfStr; i++)

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * malloc_checker - Allocate a space in a memory
+ * malloc_checked - Allocate a space in a memory
  *
  * @b: Size of space that we want alloocate
  *

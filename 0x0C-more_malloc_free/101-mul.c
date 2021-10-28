@@ -32,8 +32,7 @@ int main(int argc, char *argv[])
 	len1 = _strlen(argv[1]);
 	len2 = _strlen(argv[2]);
 
-	finalRes = __calloc(len1 + len2 + 1, sizeof(int));
-	check_alloc(finalRes);
+	finalRes = __calloc(len1 + len2, sizeof(int));
 
 	multiply(finalRes, len1, argv[1], len2, argv[2]);
 	free(finalRes);
@@ -120,6 +119,7 @@ int *__calloc(unsigned int nmemb, unsigned int size)
 		error();
 
 	pointer = malloc(nmemb * size);
+	check_alloc(pointer);
 
 	_memset(pointer, 0, nmemb * size);
 

@@ -22,10 +22,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	else
 		length1 = _strlen(s1);
 
-	if (s2 != NULL)
-		length2 = _strlen(s2);
+	if (s2 == NULL)
+		length2 = 0;
 	else
-		return (s1);
+		length2 = _strlen(s2);
 
 	if (n < length2)
 		length2 = n;
@@ -42,7 +42,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		*(sFinal + length1 + i) = *(s2 + i);
 	*(sFinal + length1 + length2) = '\0';
 	return (sFinal);
-
 }
 
 /**

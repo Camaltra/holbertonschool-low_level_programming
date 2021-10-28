@@ -173,11 +173,11 @@ void multiply(int *finalRes, int len1, char *s1, int len2, char *s2)
 {
 	int i, j, carry, n1, n2;
 
-	for (i = len1 - 1; i >= 0; i--)
+	for (i = (len1 - 1); i >= 0; i--)
 	{
 		carry = 0;
 		n1 = s1[i] - '0';
-		for (j = len2 - 1; j >= 0; j--)
+		for (j = (len2 - 1); j >= 0; j--)
 		{
 			n2 = s2[j] - '0';
 			carry += n1 * n2 + finalRes[i + j + 1];

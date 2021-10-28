@@ -7,7 +7,7 @@
  * @min: First integer
  * @max: Last integer
  *
- * Return; NULL if probleme, pointer to the array else
+ * Return: NULL if probleme, pointer to the array else
  */
 int *array_range(int min, int max)
 {

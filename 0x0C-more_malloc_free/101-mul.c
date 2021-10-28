@@ -119,7 +119,8 @@ int *__calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 
 	pointer = malloc(nmemb * size);
-	check_alloc(pointer);
+	if (pointer == NULL)
+		return (NULL);
 
 	_memset(pointer, 0, nmemb * size);
 

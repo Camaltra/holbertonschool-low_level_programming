@@ -20,17 +20,22 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s1 == NULL)
 		length1 = 0;
 	else
-		length1 = _strlen(s1);
+	{
+		for (length1 = 0; *(s1 + length1); length1++)
+			;
+	}
 
 	if (s2 == NULL)
 		length2 = 0;
 	else
-		length2 = _strlen(s2);
-
+	{
+		for (length2 = 0; *(s1 + length2); length2++)
+			;
+	}
 	if (n < length2)
 		length2 = n;
 
-	sFinal = malloc(sizeof(char) * (length1 + length2 + 2));
+	sFinal = malloc(sizeof(char) * (length1 + length2 + 1));
 	if (sFinal == NULL)
 		return (NULL);
 
@@ -42,18 +47,3 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	return (sFinal);
 }
 
-/**
- * _strlen - Calculate the length of a string.
- *
- * @s: String to manipulate.
- *
- * Return: The length of the inputed string.
- */
-int _strlen(char *s)
-{
-	int i;
-
-	for (i = 0; s[i] != '\0'; i++)
-		;
-	return (i);
-}

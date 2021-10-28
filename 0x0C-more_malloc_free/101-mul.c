@@ -116,7 +116,7 @@ int *__calloc(unsigned int nmemb, unsigned int size)
 	void *pointer;
 
 	if (nmemb == 0 || size == 0)
-		return (NULL);
+		error();
 
 	pointer = malloc(nmemb * size);
 		check_alloc(pointer);

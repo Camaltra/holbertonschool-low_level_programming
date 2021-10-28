@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	int len1, len2;
 	int *finalRes;
 
-	if (argc != 3 || argv[1] == NULL || argv[2] == NULL)
+	if (argc != 3)
 		error();
 
 	check_digit(argv[1]);

@@ -11,26 +11,18 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void **pointer_to_array;
+	char *pointer;
 	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	pointer_to_array = malloc(nmemb);
-	if (pointer_to_array == NULL)
+	pointer = malloc(nmemb * size);
+	if (pointer == NULL)
 		return (NULL);
 
-	for (i = 0; i < size; i++)
-	{
-		pointer_to_array[i] = malloc(size);
-		if (pointer_to_array[i] == NULL)
-		{
-			for ( ; i; i--)
-				free(pointer_to_array[i]);
-			free(pointer_to_array);
-			return (NULL);
-		}
-	}
-	return (pointer_to_array);
+	for (i = 0; i < size * nmemb; i++)
+		*(pointer + i) = 0;
+
+	return (pointer);
 }

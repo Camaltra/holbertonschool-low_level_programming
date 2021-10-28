@@ -14,7 +14,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	void **pointer_to_array;
 	unsigned int i;
 
-	if (nmemb <= 0 || size <= 0)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
 
 	pointer_to_array = malloc(nmemb);

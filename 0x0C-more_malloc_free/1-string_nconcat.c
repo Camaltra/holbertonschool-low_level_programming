@@ -4,7 +4,7 @@
 int _strlen(char *s);
 
 /**
- * str_concat - Concatenate 2 string into a new one
+ * string_nconcat - Concatenate 2 string into a new one
  *
  * @s1: Str one
  * @s2: Str two
@@ -40,7 +40,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		*(sFinal + i) = *(s1 + i);
 	for (i = 0; i < length2; i++)
 		*(sFinal + length1 + i) = *(s2 + i);
-	*(sFinal + totalLenght) = '\0';
+	*(sFinal + length1 + length2) = '\0';
 	return (sFinal);
 
 }

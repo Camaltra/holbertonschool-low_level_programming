@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 	len1 = _strlen(argv[1]);
 	len2 = _strlen(argv[2]);
 
-	finalRes = __calloc(len1 + len2, sizeof(int));
+	finalRes = __calloc((len1 + len2), sizeof(int));
 
 	multiply(finalRes, len1, argv[1], len2, argv[2]);
 	free(finalRes);

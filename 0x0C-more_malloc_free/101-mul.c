@@ -8,6 +8,7 @@ int _strlen(char *s);
 int *__calloc(unsigned int nmemb, unsigned int size);
 void check_alloc(int *p);
 void multiply(int *finalRes, int len1, char *s1, int len2, char *s2);
+char *_memset(char *s, char b, unsigned int n);
 
 /**
  * main - Run the process, make two inputed arg multiply
@@ -22,7 +23,7 @@ int main(int argc, char *argv[])
 	int len1, len2;
 	int *finalRes;
 
-	if (argc != 3 && argv[1] == NULL && argv[2] == NULL)
+	if (argc != 3 || argv[1] == NULL || argv[2] == NULL)
 		error();
 
 	check_digit(argv[1]);
@@ -32,7 +33,6 @@ int main(int argc, char *argv[])
 	len2 = _strlen(argv[2]);
 
 	finalRes = __calloc(len1 + len2 + 1, sizeof(int));
-	check_alloc(finalRes);
 
 	multiply(finalRes, len1, argv[1], len2, argv[2]);
 	free(finalRes);
@@ -119,14 +119,31 @@ int *__calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 
 	pointer = malloc(nmemb * size);
-	if (pointer == NULL)
-		return (NULL);
+		check_alloc(pointer);
 
-	for (i = 0; i < size * nmemb; i++)
-		*(pointer + i) = 0;
+	_memset(pointer, 0, nmemb * size);
 
 	return (pointer);
 }
+
+/**
+ * _memset - fills memory with a constant byte
+ *
+ * @s: Buffer adress
+ * @b: Constant byte to fill memory
+ * @n: Number of contant byte to fill
+ *
+ * Return: The buffer adress.
+ */
+char *_memset(char *s, char b, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+		*(s + i) = b;
+	return (s);
+}
+
 
 /**
  * check_alloc - check if the malloc is a succes
@@ -156,11 +173,11 @@ void multiply(int *finalRes, int len1, char *s1, int len2, char *s2)
 {
 	int i, j, carry, n1, n2;
 
-	for (i = (len1 - 1); i >= 0; i--)
+	for (i = len1 - 1; i >= 0; i--)
 	{
 		carry = 0;
 		n1 = s1[i] - '0';
-		for (j = (len2 - 1); j >= 0; j--)
+		for (j = len2 - 1; j >= 0; j--)
 		{
 			n2 = s2[j] - '0';
 			carry += n1 * n2 + finalRes[i + j + 1];
@@ -172,13 +189,11 @@ void multiply(int *finalRes, int len1, char *s1, int len2, char *s2)
 	}
 	i = 0;
 	while (finalRes[i] == 0)
-	{
 		i++;
-	}
 	if (i >= len1 + len2 + 1)
 		_putchar('0');
 
-	for ( ; i < (len1 + len2) ; i--)
+	for ( ; i < (len1 + len2) ; i++)
 		_putchar(finalRes[i] + '0');
 	_putchar('\n');
 }

@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 	print_byte((char *)&main, atoi(argv[1]));
-	return (1);
+	return (0);
 }
 
 /**

@@ -1,10 +1,12 @@
 #include "3-calc.h"
 
 /**
- * 
- * 
- * 
- * 
+ * main - Make the operation between 2 numbers
+ *
+ * @argc: Number of arg
+ * @argv: Value of arg
+ *
+ * Return: 0 (succes)
  */
 int main(int argc,char *argv[])
 {

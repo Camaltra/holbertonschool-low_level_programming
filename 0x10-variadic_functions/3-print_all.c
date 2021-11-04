@@ -45,7 +45,7 @@ void print_all(const char * const format, ...)
 		j = 0;
 		while (p[j].type)
 		{
-			if (p[j].type[0] == format[i])
+			if (*p[j].type == format[i])
 			{
 				printf("%s", separator);
 				separator = ", ";
@@ -104,10 +104,9 @@ void print_char(va_list print)
  */
 void print_str(va_list print)
 {
-	char *str;
+	char *str = va_arg(print, char *);
 
-	str = va_arg(print, char *);
-	if (!(str))
+	if (str == NULL)
 		str = "(nil)";
 	printf("%s", str);
 }

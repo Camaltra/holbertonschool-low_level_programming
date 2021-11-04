@@ -41,6 +41,7 @@ void print_all(const char * const format, ...)
 				printf("%s", separator);
 				separator = ", ";
 				p[j].f(print);
+				break;
 			}
 			j++;
 		}

@@ -13,20 +13,13 @@ void print_str(va_list);
  * @format: sting that containt the type of the given argu
  *
  * Return: ANything, cause void function.
- *
- * Description: If you want to print :
- * a char : c
- * an int : i
- * a string : s
- * a float : f
- * Then, a the same place, in the same order, put want you want to print
- * in the follow argu.
- * ex : print_all("icsf", 3, 'B', "Hello world", 3.43)
  */
 void print_all(const char * const format, ...)
 {
 	unsigned int i, j;
 	char *separator = "";
+
+	va_list print;
 
 	format_str p[] = {
 	{"c", print_char},
@@ -35,8 +28,6 @@ void print_all(const char * const format, ...)
 	{"f", print_float},
 	{NULL, NULL}
 	};
-
-	va_list print;
 
 	va_start(print, format);
 	i = 0;

@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 /**
- * struct format_str
+ * struct format_str - Format str
  *
  * @type: Type of the argu
  * @f: Pointer to function to print argu

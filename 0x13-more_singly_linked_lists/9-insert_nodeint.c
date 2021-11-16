@@ -19,12 +19,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (idx != 0)
 	{
 		browse = *head;
-		for (i = 0; i < idx - 1; i++)
-		{
-			if (browse->next == NULL)
-				return (NULL);
+		for (i = 0; i < idx - 1 || browse != NULL; i++)
 			browse = browse->next;
-		}
+		if (browse == NULL)
+			return (NULL);
 	}
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)

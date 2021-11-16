@@ -42,7 +42,7 @@ int check_addr(const listint_t *head, const listint_t *current, size_t count)
 	const listint_t *browse;
 
 	browse = head;
-	for (i = 0; i < counter; i++)
+	for (i = 0; i < count; i++)
 	{
 		if ((void *)browse == (void *)current)
 			return (0);

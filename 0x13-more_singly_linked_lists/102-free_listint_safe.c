@@ -11,7 +11,7 @@ int check_addr2(const listint_t *head, const listint_t *current, size_t count);
 */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t i, elem;
+	size_t i, elem = 0;
 	listint_t *h_copy = *h, *next;
 
 	if (*h != NULL && h != NULL)

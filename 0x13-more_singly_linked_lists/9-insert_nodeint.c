@@ -17,6 +17,14 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (head == NULL || *head == NULL)
 		return (NULL);
 
+	browse = *head;
+	for (i = 0; i < idx - 1; i++)
+	{
+		if (browse->next == NULL)
+			return (NULL);
+		browse = browse->next;
+	}
+
 	new = malloc(sizeof(listint_t));
 	if (!new)
 		return (NULL);
@@ -29,19 +37,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		*head = new;
 		return (new);
 	}
-
-	browse = *head;
-
-	for (i = 0; i < idx - 1; i++)
-	{
-		if (browse->next == NULL)
-		{
-			free(new);
-			return (NULL);
-		}
-		browse = browse->next;
-	}
-
 	new->next = browse->next;
 	browse->next = new;
 	return (new);

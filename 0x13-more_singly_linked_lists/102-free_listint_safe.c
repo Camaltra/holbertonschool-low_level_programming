@@ -14,7 +14,7 @@ size_t free_listint_safe(listint_t **h)
 	size_t i, elem;
 	listint_t *h_copy = *h, *next;
 
-	if (*h != NULL)
+	if (*h != NULL && h != NULL)
 	{
 		for (elem = 0; *h && check_addr2(h_copy, *h, elem); elem++)
 		{
@@ -24,9 +24,9 @@ size_t free_listint_safe(listint_t **h)
 		*h = h_copy;
 		for (i = 0; i < elem; i++)
 		{
-			next = (*h)->next;
-			free(*h);
-			*h = next;
+			next = *h;
+			*h = (*h)->next;
+			free(next);
 		}
 		if (*h)
 			*h = NULL;

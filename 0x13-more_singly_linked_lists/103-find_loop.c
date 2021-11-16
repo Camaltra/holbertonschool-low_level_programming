@@ -1,6 +1,5 @@
 #include "lists.h"
 
-int check_addr3(const listint_t *head, const listint_t *current, size_t count);
 
 /**
 * find_listint_loop - Find if the list contain infinite loop
@@ -11,41 +10,26 @@ int check_addr3(const listint_t *head, const listint_t *current, size_t count);
 */
 listint_t *find_listint_loop(listint_t *head)
 {
-	size_t elem = 0;
-	listint_t *browse;
+	listint_t *tortoise;
+	listint_t *hare;
 
-	browse = head;
-	while (browse != NULL && check_addr3(head, browse, elem))
+	if (head == NULL || head->next == NULL)
+		return (NULL);
+	tortoise = hare = head;
+	while (hare->next != NULL && hare->next->next != NULL)
 	{
-		browse = browse->next;
-		elem++;
+		tortoise = tortoise->next;
+		hare = hare->next->next;
+		if (tortoise == hare)
+		{
+			tortoise = head;
+			while (tortoise != hare)
+			{
+				tortoise = tortoise->next;
+				hare = hare->next;
+			}
+			return (hare);
+		}
 	}
-	if (browse != NULL)
-		return (browse);
-
 	return (NULL);
-}
-
-/**
-* check_addr3 - Check if the addr has been already print
-*
-* @head: Linked list
-* @current: Current elem to check
-* @count: Position of the current elem
-*
-* Return: 0 if not already print, 1 else
-*/
-int check_addr3(const listint_t *head, const listint_t *current, size_t count)
-{
-	size_t i;
-	const listint_t *browse;
-
-	browse = head;
-	for (i = 0; i < count; i++)
-	{
-		if ((void *)browse == (void *)current)
-			return (0);
-		browse = browse->next;
-	}
-	return (1);
 }

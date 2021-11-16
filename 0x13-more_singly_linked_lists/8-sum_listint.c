@@ -13,7 +13,7 @@ int sum_listint(listint_t *head)
 	listint_t *browse;
 
 	if (head == NULL)
-		return (NULL);
+		return (0);
 
 	browse = head;
 	while (browse)

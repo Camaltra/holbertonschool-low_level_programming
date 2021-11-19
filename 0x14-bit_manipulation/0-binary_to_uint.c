@@ -11,7 +11,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	char numb;
 	unsigned int result = 0;
-	int i, mul_of_two = 2;
+	int i, mul_of_two = 1;
 
 	if (b == NULL)
 		return (0);
@@ -27,5 +27,5 @@ unsigned int binary_to_uint(const char *b)
 		result += (numb - '0') * mul_of_two;
 		mul_of_two *= 2;
 	}
-	return (result / 2);
+	return (result);
 }

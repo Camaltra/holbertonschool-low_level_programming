@@ -3,7 +3,7 @@
 #include <string.h>
 
 /**
-* main - Crakc the hash key for the crackme5 file
+* main - Crack the hash key for the crackme5 file
 *
 * @argc: The number of argument
 * @argv: Array of arg

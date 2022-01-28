@@ -47,7 +47,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 	{
 		if (j != 0)
 			printf(", ");
-		printf("%s: %s", rev_browse->key, rev_browse->value);
+		printf("'%s': '%s'", rev_browse->key, rev_browse->value);
 		rev_browse = rev_browse->sprev;
 		j++;
 	}
@@ -74,7 +74,7 @@ void shash_table_print(const shash_table_t *ht)
 	{
 		if (j != 0)
 			printf(", ");
-		printf("%s: %s", browse->key, browse->value);
+		printf("'%s': '%s'", browse->key, browse->value);
 		browse = browse->snext;
 		j++;
 	}

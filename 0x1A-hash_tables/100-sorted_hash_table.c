@@ -9,17 +9,17 @@
 */
 shash_table_t *shash_table_create(unsigned long int size)
 {
-	shash_table_t *ht = NULL;
+	shash_table_t *ht;
 
 	ht = malloc(sizeof(shash_table_t));
-	if (!ht)
+	if (ht == NULL)
 		return (NULL);
 
 	ht->size = size;
 	ht->shead = NULL;
 	ht->stail = NULL;
 	ht->array = calloc(ht->size, sizeof(shash_node_t));
-	if (!ht->array)
+	if (ht->array == NULL)
 	{
 		free(ht);
 		return (NULL);
@@ -95,22 +95,21 @@ void shash_sorted_node(shash_table_t *ht, shash_node_t *node)
 
 	if (ht->shead == NULL && ht->stail == NULL)
 	{
-		ht->shead = node;
-		ht->stail = node;
+		ht->shead = ht->stail = node;
 		return;
 	}
 	browse = ht->shead;
-	while (browse)
+	while (browse != NULL)
 	{
 		if (strcmp(node->key, browse->key) < 0)
 		{
 			node->snext = browse;
 			node->sprev = browse->sprev;
 			browse->sprev = node;
-			if (node->sprev == NULL)
-				ht->shead = node;
-			else
+			if (node->sprev)
 				node->sprev->snext = node;
+			else
+				ht->shead = node;
 			return;
 		}
 		browse = browse->snext;

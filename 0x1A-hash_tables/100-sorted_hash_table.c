@@ -226,7 +226,7 @@ void shash_table_delete(shash_table_t *ht)
 }
 
 /**
-* hash_table_get - Get the content of a key in the hash
+* shash_table_get - Get the content of a key in the hash
 *
 * @ht: The given key
 * @key: The given key to get the value

@@ -95,19 +95,18 @@ void shash_sorted_node(shash_table_t *ht, shash_node_t *node)
 
 	if (ht->shead == NULL && ht->stail == NULL)
 	{
-		ht->shead = node;
-		ht->stail = node;
+		ht->shead = ht->stail = node;
 		return;
 	}
 	browse = ht->shead;
-	while (browse)
+	while (browse != NULL)
 	{
 		if (strcmp(node->key, browse->key) < 0)
 		{
 			node->snext = browse;
 			node->sprev = browse->sprev;
 			browse->sprev = node;
-			if (!node->sprev)
+			if (node->sprev)
 				node->sprev->snext = node;
 			else
 				ht->shead = node;

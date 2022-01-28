@@ -16,15 +16,14 @@ shash_table_t *shash_table_create(unsigned long int size)
 		return (NULL);
 
 	ht->size = size;
+	ht->shead = NULL;
+	ht->stail = NULL;
 	ht->array = calloc(ht->size, sizeof(shash_node_t));
 	if (!ht->array)
 	{
 		free(ht);
 		return (NULL);
 	}
-
-	ht->shead = NULL;
-	ht->stail = NULL;
 	return (ht);
 }
 
@@ -39,6 +38,9 @@ void shash_table_print_rev(const shash_table_t *ht)
 {
 	shash_node_t *rev_browse = ht->stail;
 	int j = 0;
+
+	if (!ht || !ht->array)
+		return;
 
 	printf("{");
 	while (rev_browse != NULL)
@@ -63,6 +65,9 @@ void shash_table_print(const shash_table_t *ht)
 {
 	shash_node_t *browse = ht->shead;
 	int j = 0;
+
+	if (!ht || !ht->array)
+		return;
 
 	printf("{");
 	while (browse != NULL)
@@ -110,8 +115,8 @@ void shash_sorted_node(shash_table_t *ht, shash_node_t *node)
 		}
 		browse = browse->snext;
 	}
-	ht->stail->snext = node;
 	node->sprev = ht->stail;
+	ht->stail->snext = node;
 	ht->stail = node;
 }
 
@@ -148,7 +153,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		head = head->next;
 	}
 	new_node = create_node(key, value);
-	if (new_node == NULL)
+	if (!new_node)
 		return (0);
 	new_node->next = ht->array[index];
 	ht->array[index] = new_node;
@@ -172,6 +177,7 @@ shash_node_t *create_node(const char *key, const char *value)
 		return (0);
 	new_node->snext = NULL;
 	new_node->sprev = NULL;
+	new_node->next = NULL;
 	new_node->key = strdup(key);
 	if (new_node->key == NULL)
 	{
@@ -217,4 +223,35 @@ void shash_table_delete(shash_table_t *ht)
 	}
 	free(ht->array);
 	free(ht);
+}
+
+/**
+* hash_table_get - Get the content of a key in the hash
+*
+* @ht: The given key
+* @key: The given key to get the value
+*
+* Return: The value
+*/
+char *shash_table_get(const shash_table_t *ht, const char *key)
+{
+	unsigned long int index;
+	shash_node_t *head;
+
+	if (!ht || !ht->array || ht->size == 0)
+		return (NULL);
+
+	index = key_index((const unsigned char *)key, ht->size);
+	head = ht->array[index];
+
+	if (!head)
+		return (NULL);
+
+	while (head)
+	{
+		if (strcmp(head->key, key) == 0)
+			return (head->value);
+		head = head->next;
+	}
+	return (NULL);
 }

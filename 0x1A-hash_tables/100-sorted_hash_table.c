@@ -91,7 +91,7 @@ void shash_table_print(const shash_table_t *ht)
 */
 void shash_sorted_node(shash_table_t *ht, shash_node_t *node)
 {
-	shash_node_t *browse = ht->shead;
+	shash_node_t *browse;
 
 	if (ht->shead == NULL && ht->stail == NULL)
 	{
@@ -99,15 +99,15 @@ void shash_sorted_node(shash_table_t *ht, shash_node_t *node)
 		ht->stail = node;
 		return;
 	}
-
-	while (browse != NULL)
+	browse = ht->shead;
+	while (browse)
 	{
 		if (strcmp(node->key, browse->key) < 0)
 		{
 			node->snext = browse;
 			node->sprev = browse->sprev;
 			browse->sprev = node;
-			if (!node->sprev)
+			if (node->sprev == NULL)
 				ht->shead = node;
 			else
 				node->sprev->snext = node;
@@ -175,9 +175,6 @@ shash_node_t *create_node(const char *key, const char *value)
 
 	if (new_node == NULL)
 		return (0);
-	new_node->snext = NULL;
-	new_node->sprev = NULL;
-	new_node->next = NULL;
 	new_node->key = strdup(key);
 	if (new_node->key == NULL)
 	{
@@ -191,6 +188,9 @@ shash_node_t *create_node(const char *key, const char *value)
 		free(new_node);
 		return (NULL);
 	}
+	new_node->snext = NULL;
+	new_node->sprev = NULL;
+	new_node->next = NULL;
 	return (new_node);
 }
 
@@ -238,14 +238,12 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	unsigned long int index;
 	shash_node_t *head;
 
-	if (!ht || !ht->array || ht->size == 0)
+	if (!ht || !ht->array || ht->size == 0 || !key ||
+		strcmp(key, "") == 0)
 		return (NULL);
 
 	index = key_index((const unsigned char *)key, ht->size);
 	head = ht->array[index];
-
-	if (!head)
-		return (NULL);
 
 	while (head)
 	{

@@ -13,7 +13,7 @@ This code is also betty styled, the styled code checker of the school
 <h2 align="center">Projects</h2>
 <h3><a href="https://github.com/Camaltra/holbertonschool-low_level_programming/tree/master/0x00-hello_world">0x00-hello_world</a></h3>
 <p>Discover the base of C programming language</p>
-<h3><a href="https://github.com/Camaltra/holbertonschool-low_level_programming/tree/master/0x01-variables_if_else_while">0x01-variables_if_else_while<</a>/h3>
+<h3><a href="https://github.com/Camaltra/holbertonschool-low_level_programming/tree/master/0x01-variables_if_else_while">0x01-variables_if_else_while</a></h3>
 <p>Discover how to declarate variables, and how use statements and while loop</p>
 <h3><a href="https://github.com/Camaltra/holbertonschool-low_level_programming/tree/master/0x02-functions_nested_loops">0x02-function_nested_loops</a></h3>
 <p>First nested loop in C, some basic of programming</p>

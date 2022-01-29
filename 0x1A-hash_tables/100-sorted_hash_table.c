@@ -36,12 +36,12 @@ shash_table_t *shash_table_create(unsigned long int size)
 */
 void shash_table_print_rev(const shash_table_t *ht)
 {
-	shash_node_t *rev_browse = ht->stail;
+	shash_node_t *rev_browse;
 	int j = 0;
 
-	if (!ht || !ht->array)
+	if (ht == NULL || ht->array == NULL)
 		return;
-
+	rev_browse = ht->stail;
 	printf("{");
 	while (rev_browse != NULL)
 	{
@@ -63,12 +63,13 @@ void shash_table_print_rev(const shash_table_t *ht)
 */
 void shash_table_print(const shash_table_t *ht)
 {
-	shash_node_t *browse = ht->shead;
+	shash_node_t *browse;
 	int j = 0;
 
-	if (!ht || !ht->array)
+	if (ht == NULL || ht->array == NULL)
 		return;
 
+	browse = ht->shead;
 	printf("{");
 	while (browse != NULL)
 	{

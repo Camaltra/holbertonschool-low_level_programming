@@ -4,7 +4,7 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 OBJ= $(SRC:.c=.o)
 SRC = main.c school.c
 
-all: $(OBJ)
+all: $(OBJ) m.h
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:

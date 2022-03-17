@@ -6,7 +6,7 @@ SRC = main.c school.c
 
 .PHONY: all clean oclean fclean re
 
-all: $(OBJ)
+all: $(OBJ) m.h
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:

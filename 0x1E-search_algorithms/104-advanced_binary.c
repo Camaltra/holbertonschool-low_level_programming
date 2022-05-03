@@ -45,7 +45,7 @@ int binary_search_rec(int *array, size_t start, size_t end, int value)
 	if (value == array[middle])
 		return (middle);
 	if (value < array[middle])
-		return (binary_search_rec(array, start, middle - 1, value));
+		return (binary_search_rec(array, start, middle, value));
 	return (binary_search_rec(array, middle + 1, end, value));
 }
 
